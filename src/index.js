@@ -10,7 +10,6 @@ import rootReducer from './redux/reducers';
 import rootSaga from './redux/sagas';
 import App from './App';
 
-// Add your Firebase config here
 const firebaseConfig = {
   apiKey: "AIzaSyC-DGN28nSK0QepErBIca6s68MZc8Mnlks",
   authDomain: "expense-tracker-app-b7f2b.firebaseapp.com",
@@ -22,7 +21,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const firestore = firebase.firestore(); // Get the Firestore instance
+const firestore = firebase.firestore(); 
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
@@ -30,7 +29,7 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App firestore={firestore} /> {/* Pass the Firestore instance as a prop */}
+    <App firestore={firestore} /> 
   </Provider>,
   document.getElementById('root')
 );
